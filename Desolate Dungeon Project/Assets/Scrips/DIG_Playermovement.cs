@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ public class DIG_Playermovement : MonoBehaviour
     [SerializeField] float groundCheckRadius;
     [SerializeField] LayerMask groundLayer;
 
+    private float coyoteTime = 0.1f;
+    private float coyoteTimeCounter;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +35,15 @@ public class DIG_Playermovement : MonoBehaviour
     void Update()
     {
         PlayerInput();
+
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
         Collider2D hit = Physics2D.OverlapCircle(groundCheckPosition.position, groundCheckRadius, groundLayer);
         if (hit != null)
@@ -57,13 +69,26 @@ public class DIG_Playermovement : MonoBehaviour
 
         if (jumpaction.WasPerformedThisFrame() && Rb.linearVelocity.y > 0)
         {
-            Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, Rb.linearVelocity.y * jumpForce);
+            Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, Rb.linearVelocity.y * 0.5f);
         }
 
 
-        if (isGrounded && Rb.linearVelocity.y <= 0)
+        if (jumpaction.WasPerformedThisFrame() && isGrounded || jumpaction.WasPerformedThisFrame() && coyoteTimeCounter > 0)
         {
-            Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, 0);
+            coyoteTimeCounter = 0;
+            Rb.linearVelocityY = 0;
+            Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+
+
+    }
+
+    private void FixedUpdate()
+    {
+       if (!isGrounded && Rb.linearVelocityY > 0 && jumpaction.IsPressed()) 
+            {
+            Rb.AddForce(Vector2.down * 40);
+        }
+
     }
 }
