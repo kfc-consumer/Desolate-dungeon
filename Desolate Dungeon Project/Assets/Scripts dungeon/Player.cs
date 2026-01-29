@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     InputAction moveAction;
     Vector2 moveInput;
 
+    [SerializeField] float moveSpeed;
+    [SerializeField] float jumpForce;
 
     void Start()
     {

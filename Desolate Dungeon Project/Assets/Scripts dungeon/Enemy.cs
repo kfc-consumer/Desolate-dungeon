@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
 
@@ -10,6 +11,7 @@ public class Enemy : MonoBehaviour
     
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float checkDistance;
+    
 
     [SerializeField] Transform lookPosition;
     

@@ -3,31 +3,22 @@ using UnityEngine;
 public class Mimic : MonoBehaviour
 {
 
-    Rigidbody2D mimicRb;
-    
-    [SerializeField] float moveSpeed;
-    Transform target;
-    Vector3 moveDirection;
+    Rigidbody2D enemyRb;
 
-    private void Awake()
-    {
-        mimicRb = GetComponent<Rigidbody2D>();
+    float moveSpeed = 200.0f;
 
-    }
-
-    
+    [SerializeField] float direction;
 
     void start()
     {
-        target = GameObject.Find("Player").transform;
+        enemyRb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if (target)
-        {
-            Vector3 = (target.position - transform.position).normalized.moveDirection;
-        }
+        if (direction == 1 )
+            
     }
+
 
 }
