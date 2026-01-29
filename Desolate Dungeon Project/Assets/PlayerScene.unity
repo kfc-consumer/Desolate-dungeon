@@ -302,7 +302,7 @@ MonoBehaviour:
     m_Flags: 0
   moveInput: {x: 0, y: 0}
   moveSpeed: 7
-  jumpForce: 3
+  jumpForce: 10
   isGrounded: 0
   groundCheckPosition: {fileID: 1548686363}
   groundCheckRadius: 0.1
