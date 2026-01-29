@@ -21,6 +21,12 @@ public class DIG_Playermovement : MonoBehaviour
     private float coyoteTime = 0.1f;
     private float coyoteTimeCounter;
 
+    [Header("Player Status")]
+
+    [SerializeField] int PlayerHealthPoints;
+
+    PS_Manager playerStatusManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +34,7 @@ public class DIG_Playermovement : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
         jumpaction = InputSystem.actions.FindAction("Jump");
+        playerStatusManager = FindAnyObjectByType<PS_Manager>();
 
     }
 
@@ -62,14 +69,9 @@ public class DIG_Playermovement : MonoBehaviour
     {
         moveInput = moveAction.ReadValue<Vector2>();
         Rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, Rb.linearVelocity.y);
-        if (jumpaction.triggered)
+        if (jumpaction.triggered && isGrounded)
         {
             Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, jumpForce);
-        }
-
-        if (jumpaction.WasPerformedThisFrame() && Rb.linearVelocity.y > 0)
-        {
-            Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, Rb.linearVelocity.y * 0.5f);
         }
 
 
@@ -81,14 +83,11 @@ public class DIG_Playermovement : MonoBehaviour
         }
 
 
+
     }
 
-    private void FixedUpdate()
+    void WhenDMG()
     {
-       if (!isGrounded && Rb.linearVelocityY > 0 && jumpaction.IsPressed()) 
-            {
-            Rb.AddForce(Vector2.down * 40);
-        }
-
+        playerStatusManager.TakeDamage(1);
     }
 }
