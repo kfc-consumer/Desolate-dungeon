@@ -1,10 +1,12 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DungeonController : MonoBehaviour
 {
     Vector2 StartPosition;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] private GameObject deathEffect;
 
 
     private void Awake()
@@ -17,6 +19,7 @@ public class DungeonController : MonoBehaviour
     {
         StartPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
+       
 
     }
 
@@ -28,10 +31,18 @@ public class DungeonController : MonoBehaviour
         }
     }
 
+    private void DeathParticles()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
 
+    }
+
+        
     void Die()
     {
         StartCoroutine(Respawn(0.5f));
+        DeathParticles();
+        
     }
 
     IEnumerator Respawn(float duration)
@@ -43,6 +54,7 @@ public class DungeonController : MonoBehaviour
         transform.position = StartPosition;
         transform.localScale = new Vector3(1, 1, 1);
         rb.simulated = true;
-
     }
+
+   
 }
