@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalGameScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: 44304991a2b12c3469fd18e33b252e88
+  - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 7f1d50a59a18a8743b7a95df278c3bf0
   - enabled: 1

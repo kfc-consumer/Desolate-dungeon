@@ -28,7 +28,6 @@ public class DIG_Playermovement : MonoBehaviour
     PS_Manager playerStatusManager;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
@@ -38,7 +37,7 @@ public class DIG_Playermovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         PlayerInput();
