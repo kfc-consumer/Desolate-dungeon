@@ -35,7 +35,7 @@ public class DungeonController : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
 
-    }
+    }   
 
         
     void Die()
