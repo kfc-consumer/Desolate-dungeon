@@ -312,7 +312,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   PlayerHealthPoints: 3
-  dashingVelocity: 12
+  dashingVelocity: 20
   dashingTime: 0.5
 --- !u!114 &100721917
 MonoBehaviour:
