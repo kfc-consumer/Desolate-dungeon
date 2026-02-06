@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    
+
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync(1);
