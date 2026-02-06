@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 5120334477113026309}
   - component: {fileID: 3364454917280633073}
   - component: {fileID: 5822063305639687017}
+  - component: {fileID: 7047232792527572687}
   - component: {fileID: 8172905382570077024}
   - component: {fileID: 1042093804462775895}
   m_Layer: 0
@@ -205,6 +206,19 @@ MonoBehaviour:
     m_Bits: 128
   checkDistance: 1
   lookPosition: {fileID: 4733970123407452029}
+--- !u!114 &7047232792527572687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326648471118789021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a420d23fce61bd44887a2c21c70df986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  damage: 2
 --- !u!50 &8172905382570077024
 Rigidbody2D:
   serializedVersion: 5
