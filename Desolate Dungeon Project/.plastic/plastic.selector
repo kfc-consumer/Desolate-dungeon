@@ -1,4 +1,0 @@
-repository "Desolate Dungeon Project/Desolate Dungeon Project@5773922833318@cloud"
-  path "/"
-    br "/main"
-    co "/main"
