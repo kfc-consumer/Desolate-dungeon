@@ -37,6 +37,7 @@ public class DIG_Playermovement : MonoBehaviour
     private Vector2 dashDirection;
     private bool isDashing;
     private bool canDash = true;
+    private bool isFacingRight;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,6 +48,7 @@ public class DIG_Playermovement : MonoBehaviour
         jumpaction = InputSystem.actions.FindAction("Jump");
         playerStatusManager = FindAnyObjectByType<PS_Manager>();
         trailRenderer = GetComponent<TrailRenderer>();
+        isFacingRight = true;
 
     }
 
@@ -122,6 +124,17 @@ public class DIG_Playermovement : MonoBehaviour
         if (isGrounded)
         {
             canDash = true;
+        }
+
+        if (moveInput.x > 0)
+        {
+            isFacingRight = true;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {         
+            isFacingRight = false;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
     }

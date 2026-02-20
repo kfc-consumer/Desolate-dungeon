@@ -9,14 +9,14 @@ public class PlayerWeaponScript : MonoBehaviour
     public float AttackRange;
     public LayerMask whatIsEnemies;
     public int Damage;
-    TestEnemy Enemy;
+    TestEnemy2 Enemy;
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       Enemy = FindAnyObjectByType<TestEnemy>();
+       Enemy = FindAnyObjectByType<TestEnemy2>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class PlayerWeaponScript : MonoBehaviour
                 Collider2D[] EnemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, AttackRange, whatIsEnemies);
                 for (int i = 0; i < EnemiesToDamage.Length; i++)
                     {
-                    EnemiesToDamage[i].GetComponent<TestEnemy>().TakeDamage(Damage);
+                    EnemiesToDamage[i].GetComponent<TestEnemy2>().TakeDamage(Damage);
                 }
 
 
