@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8930817, g: 0.22186607, b: 0.22186607, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -331,37 +331,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1 &595367614
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 595367615}
-  m_Layer: 0
-  m_Name: Launch Point
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &595367615
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595367614}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.43, y: -0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1416106754}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &613968541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,16 +340,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5120334477113026309, guid: c5f01579c3896904e88949ffc36ad8ab, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120334477113026309, guid: c5f01579c3896904e88949ffc36ad8ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.5
+      value: -13.45
       objectReference: {fileID: 0}
     - target: {fileID: 5120334477113026309, guid: c5f01579c3896904e88949ffc36ad8ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.9
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 5120334477113026309, guid: c5f01579c3896904e88949ffc36ad8ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1101,7 +1066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -491, y: 433}
+  m_AnchoredPosition: {x: -491, y: 426}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743190884
@@ -1189,7 +1154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -877, y: 759}
+  m_AnchoredPosition: {x: -877, y: 407}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787494909
@@ -1434,36 +1399,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7798385265665963684, guid: e343c302a166ecd438a133e79112afa5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 595367615}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1880950616628985905, guid: e343c302a166ecd438a133e79112afa5, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 8393331986546861444}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e343c302a166ecd438a133e79112afa5, type: 3}
---- !u!1 &8393331986546861443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1880950616628985905, guid: e343c302a166ecd438a133e79112afa5, type: 3}
-  m_PrefabInstance: {fileID: 8393331986546861442}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8393331986546861444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8393331986546861443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899dcba1f9de35e4ca235c6bef858348, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileLaunch
-  projectilePrefab: {fileID: 583216377568754173, guid: 4aed4e48df4ae864cb28f67cccfd8f22, type: 3}
-  launchPoint: {fileID: 595367615}
-  shootTime: 5
-  shootCounter: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
