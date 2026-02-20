@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,11 +9,13 @@ public class DIG_Playermovement : MonoBehaviour
     public InputAction moveAction;
     public Vector2 moveInput;
     InputAction jumpaction;
+    private TrailRenderer trailRenderer;
+    private bool dashInput;
 
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
 
-    [Header("Ground check system")]
+    [Header("Ground check system")] 
     [SerializeField] bool isGrounded;
     [SerializeField] Transform groundCheckPosition;
     [SerializeField] float groundCheckRadius;
@@ -28,6 +31,15 @@ public class DIG_Playermovement : MonoBehaviour
     PS_Manager playerStatusManager;
 
 
+    [Header("Dash Related")]
+    [SerializeField] private float dashingVelocity;
+    [SerializeField] private float dashingTime;
+    private Vector2 dashDirection;
+    private bool isDashing;
+    private bool canDash = true;
+    private bool isFacingRight;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,12 +47,15 @@ public class DIG_Playermovement : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         jumpaction = InputSystem.actions.FindAction("Jump");
         playerStatusManager = FindAnyObjectByType<PS_Manager>();
+        trailRenderer = GetComponent<TrailRenderer>();
+        isFacingRight = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        dashInput = Input.GetButtonDown("Dash");
         PlayerInput();
 
         if (isGrounded)
@@ -62,6 +77,11 @@ public class DIG_Playermovement : MonoBehaviour
             isGrounded = false;
         }
 
+      
+
+
+
+
     }
 
 
@@ -81,13 +101,55 @@ public class DIG_Playermovement : MonoBehaviour
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        if (dashInput && canDash)
+        {
+            
+            isDashing = true;
+            canDash = false;
+            trailRenderer.emitting = true;
+            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+            if (dashDirection == Vector2.zero)
+            {
+                dashDirection = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(StopDashing());
+        }
 
+        if (isDashing)
+        {
+            Rb.linearVelocity = dashDirection.normalized * dashingVelocity;
+            return;
+        }
 
+        if (isGrounded)
+        {
+            canDash = true;
+        }
+
+        if (moveInput.x > 0)
+        {
+            isFacingRight = true;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {         
+            isFacingRight = false;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
 
     }
 
     void WhenDMG()
     {
         playerStatusManager.TakeDamage(1);
+    }
+
+
+    IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(dashingTime);
+        trailRenderer.emitting = false;
+        isDashing = false;
+        
     }
 }
