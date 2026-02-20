@@ -132,10 +132,12 @@ public class DIG_Playermovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
-        {         
+        if (moveInput.x < 0)
+        {
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+
 
     }
 
